@@ -39,6 +39,10 @@
     padding: 0;
     box-sizing: border-box;
 }
+button{
+    border: none;
+    font-size: inherit;
+}
 body{
     background-color: var(--bg-color);
     color: var(--text-color);
@@ -50,7 +54,7 @@ body{
 
 
 
-/* ----------------- HEADER ---------------------*/
+/* ----------------- HEADER --------------------- */
 
 .header{
     width: 100%;
@@ -70,37 +74,18 @@ body{
     display: flex;
     gap: 10px;
 }
-.header__options-container li{
-    height: 100%;
-    padding: 3px 7px;
-    cursor: pointer;
-    border-radius: 7px;
-}
-.header__options-container li:hover{
-    background-color: var(--bg-color-hover);
-}
-.header__options-container li:hover > .header__options__svg{
-    background-color: var(--bg-color-hover);
-    fill: var(--text-color-hover);
-}
 .header__options-container li::marker{
     content: none;
 }
 
 
-.header__options-container li.header__options__theme{
-    padding: 0;
+.header__options__theme{
     background-color: var(--color-option);
     display: flex;
     position: relative;
     z-index: 0;
     box-shadow: 0 0 8px 0 #2222;
 }
-.header__options-container li.header__options__theme:hover{
-    background-color: var(--primary-color);
-}
-
-
 #header__options__theme__input{
     display: none;
 }
@@ -163,6 +148,7 @@ body{
     position: absolute;
     left: 0px;
     top: 12px;
+    cursor: pointer;
     z-index: calc(var(--position) * -2);
     display: none;
     background-color: var(--color-option);
@@ -194,15 +180,93 @@ body{
 .header__options__svg{
     height: 100%;
     fill: var(--text-color);
+    padding: 3px 7px;
+    cursor: pointer;
+    border-radius: 7px;
+}
+.header__options__svg:hover{
+    background-color: var(--bg-color-hover);
+    fill: var(--text-color-hover);
+}
+.header__options__them-mode__button{
+    height: 100%;
+    background-color: transparent;
+    border-radius: 7px;
 }
 
-/* ----------------- HEADER END---------------------*/
+
+.header__options__config{
+    position: relative;
+}
+.header__options__config.open::before{
+    content: '';
+    right: 50%;
+    top: 50%;
+    position: absolute;
+    transform: translateX(50%);
+    height: 30px;
+    width: 25px;
+    background-color: var(--bg-color-secundary);
+    animation: config-before 50ms linear both;
+}
+@keyframes config-before {
+    from{
+        clip-path: polygon(50% 0, 50% 0, 50% 0, 50% 0);
+    }
+    to{
+        clip-path: polygon(60% 0, 40% 0, 0 100%, 100% 100%);
+    }
+}
+
+
+.header__options__config__button{
+    height: 100%;
+    background-color: transparent;
+    border-radius: 7px
+}
+
+
+.header__options__config__chart__wrapper{
+    color: var(--bg-color-secundary);
+    background-color: var(--text-color);
+    position: absolute;
+    top: 50%;
+    right: calc(50% - 10px);
+    display: block;
+    clip-path: polygon(calc(100% - 10px) 0%, calc(100% - 10px) 0%, calc(100% - 10px) 0%, calc(100% - 10px) 0%, calc(100% - 10px) 0%, calc(100% - 10px) 0%);
+    padding-top: 30px;
+    animation: .2s 100ms linear both;
+}
+@keyframes config-chart {
+    100%{
+        clip-path: polygon(100% 30px, calc(100% - 10px) 0%, calc(100% - 20px) 30px, 0% 30px, 0% 100%, 100% 100%);
+    }
+}
+.header__options__config__chart{
+    width: max-content;
+    margin: 10px;
+}
+.header__options__config__chart div{
+    margin: 10px 0;
+    border-bottom: 1px solid var(--bg-color-hover);
+}
+
+.header__options__config__chart__label{
+    display: flex;
+    gap: 10px;
+    margin: 5px;
+}
+.header__options__config__chart__label p{
+    width: max-content;
+}
+
+/* ----------------- HEADER END--------------------- */
 
 
 
 
 
-/* ----------------- MAIN ---------------------*/
+/* ----------------- MAIN --------------------- */
 
 .main{
     --time-font-size: 2.5rem;

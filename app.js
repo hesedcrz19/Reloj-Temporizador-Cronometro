@@ -131,6 +131,22 @@ DARK_LIGHT_BUTTON.addEventListener('click',TOGGLE_DARK_LIGHT);
 
 
 
+// ----------------------- CONFIG ----------------------
+
+const CONFIG_BUTTON = document.querySelector('.header__options__config');
+
+CONFIG_BUTTON.addEventListener('click', ()=>{
+
+})
+
+// ----------------------- CONFIG END ----------------------
+
+// ----------------------- HEADER END ----------------------
+
+
+
+
+
 // ----------------------- MAIN -----------------------
 
 const HOUR_CONTAINER = document.querySelector('.main__time');
@@ -160,4 +176,5 @@ const UPDATE_DATE = ()=>{
     console.log(HOUR_FORMAT.format(DATE))
 }
 
+UPDATE_DATE();
 setInterval(UPDATE_DATE,1000);
